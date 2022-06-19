@@ -26,7 +26,7 @@ spec:
     defaultSettings:
       defaultDataPath: /mnt/lvm_raid1/k3s/longhorn
     persistence:
-      defaultClassReplicaCount: 0
+      defaultClassReplicaCount: 1
     service:
       ui:
         type: ClusterIP

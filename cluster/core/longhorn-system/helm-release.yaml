@@ -27,4 +27,23 @@ spec:
       defaultDataPath: /mnt/lvm_raid1/k3s/longhorn
     service:
       ui:
-        type: NodePort
+        type: ClusterIP
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: "traefik"
+        annotations:
+          cert-manager.io/cluster-issuer: "letsencrypt-production"
+          hajimari.io/enable: "true"
+          hajimari.io/icon: "nas"
+          traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+          traefik.ingress.kubernetes.io/router.middlewares: "networking-internal-only@kubernetescrd"
+        hosts:
+          - host: "longhorn.${SECRET_DOMAIN}"
+            paths:
+              - path: /
+                pathType: Prefix
+        tls:
+          - hosts:
+              - "longhorn.${SECRET_DOMAIN}"
+            secretName: "longhorn-tls"

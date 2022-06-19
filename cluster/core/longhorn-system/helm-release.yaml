@@ -25,3 +25,6 @@ spec:
   values:
     defaultSettings:
       defaultDataPath: /mnt/lvm_raid1/k3s/longhorn
+    service:
+      ui:
+        type: NodePort

@@ -62,7 +62,7 @@ spec:
         tls:
           - hosts:
               - vaultwarden.${SECRET_DOMAIN}
-            secretName: "${SECRET_DOMAIN//./-}-tls"
+            secretName: "vaultwarden-tls"
       admin:
         enabled: true
         ingressClassName: "traefik"
@@ -78,9 +78,9 @@ spec:
               - path: /admin
                 pathType: Prefix
         tls:
-          - secretName: "${SECRET_DOMAIN//./-}-tls"
           - hosts:
               - "vaultwarden.${SECRET_DOMAIN}"
+          - secretName: "vaultwarden-tls"
     persistence:
       config:
         enabled: true

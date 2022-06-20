@@ -98,7 +98,6 @@ spec:
       postgresqlDatabase: "${VAULTWARDEN_POSTGRES_DATABASE}"
       persistence:
         enabled: true
-        storageClass: longhorn
         existingClaim: vaultwarden-postgres-v1
         accessModes:
           - ReadWriteOnce

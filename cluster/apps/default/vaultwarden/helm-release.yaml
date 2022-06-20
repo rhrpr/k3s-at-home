@@ -35,9 +35,6 @@ spec:
       WEBSOCKET_ENABLED: true
       WEBSOCKET_PORT: 3012
       DATABASE_URL: postgresql://vaultwarden:${SECRET_VAULTWARDEN_DB_PASSWORD}@vaultwarden-postgresql:5432/vaultwarden
-    envFrom:
-      - secretRef:
-          name: vaultwarden
     ingress:
       main:
         enabled: true

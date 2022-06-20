@@ -25,6 +25,7 @@ spec:
   values:
     defaultSettings:
       defaultDataPath: /mnt/lvm_raid1/k3s/longhorn
+      defaultReplicaCount: 1
     persistence:
       defaultClassReplicaCount: 1
     service:

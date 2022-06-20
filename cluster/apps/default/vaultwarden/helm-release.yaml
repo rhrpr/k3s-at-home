@@ -30,7 +30,7 @@ spec:
       DATA_FOLDER: "config"
       DOMAIN: https://vaultwarden.${SECRET_DOMAIN}
       SIGNUPS_ALLOWED: "true"
-      TZ: "${CLUSTER_TZ}"
+      TZ: Europe/London
       WEBSOCKET_ADDRESS: 0.0.0.0
       WEBSOCKET_ENABLED: true
       WEBSOCKET_PORT: 3012

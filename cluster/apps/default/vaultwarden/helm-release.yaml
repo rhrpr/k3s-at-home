@@ -54,11 +54,16 @@ spec:
             paths:
               - path: /
                 pathType: Prefix
+                service:
+                  port: http
               - path: /notifications/hub/negotiate
                 pathType: Prefix
+                service:
+                  port: http
               - path: /notifications/hub
                 pathType: Prefix
-                servicePort: 3012
+                service:
+                  port: websocket
         tls:
           - hosts:
               - vaultwarden.${SECRET_DOMAIN}
@@ -77,6 +82,8 @@ spec:
             paths:
               - path: /admin
                 pathType: Prefix
+                service:
+                  port: http
         tls:
           - hosts:
               - "vaultwarden.${SECRET_DOMAIN}"

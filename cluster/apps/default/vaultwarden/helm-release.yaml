@@ -66,26 +66,6 @@ spec:
           - hosts:
               - "vaultwarden.${SECRET_DOMAIN}"
             secretName: "vaultwarden-tls"
-      admin:
-        enabled: true
-        ingressClassName: "traefik"
-        annotations:
-          cert-manager.io/cluster-issuer: "letsencrypt-production"
-          hajimari.io/enable: "true"
-          hajimari.io/icon: "shield-key"
-          traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
-          traefik.ingress.kubernetes.io/router.middlewares: "networking-internal-only@kubernetescrd"
-        hosts:
-          - host: "vaultwarden.${SECRET_DOMAIN}"
-            paths:
-              - path: /admin
-                pathType: Prefix
-                service:
-                  port: 80
-        tls:
-          - hosts:
-              - "vaultwarden.${SECRET_DOMAIN}"
-            secretName: "vaultwarden-tls"
     persistence:
       config:
         enabled: true

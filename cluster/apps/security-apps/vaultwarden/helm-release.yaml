@@ -34,7 +34,7 @@ spec:
       WEBSOCKET_ADDRESS: 0.0.0.0
       WEBSOCKET_ENABLED: true
       WEBSOCKET_PORT: 3012
-      DATABASE_URL: postgresql://vaultwarden:${VAULTWARDEN_POSTGRES_PASSWORD}@vaultwarden-postgresql:5432/vaultwarden
+      DATABASE_URL: postgresql://vaultwarden:${SECRET_VAULTWARDEN_DB_PASSWORD}@vaultwarden-postgresql:5432/vaultwarden-postgresql
       ADMIN_TOKEN:
         valueFrom:
           secretKeyRef:

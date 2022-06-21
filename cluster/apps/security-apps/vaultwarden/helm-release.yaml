@@ -34,7 +34,7 @@ spec:
       WEBSOCKET_ADDRESS: 0.0.0.0
       WEBSOCKET_ENABLED: true
       WEBSOCKET_PORT: 3012
-      DATABASE_URL: postgresql://vaultwarden:${SECRET_VAULTWARDEN_DB_PASSWORD}@vaultwarden-postgresql:5432/vaultwarden-postgresql
+      DATABASE_URL: postgresql://vaultwarden:${SECRET_VAULTWARDEN_DB_PASSWORD}@vaultwarden-postgresql:5432/vaultwarden
       ADMIN_TOKEN:
         valueFrom:
           secretKeyRef:
@@ -87,9 +87,9 @@ spec:
         existingClaim: vaultwarden-config
     postgresql:
       enabled: true
-      postgresqlUsername: "${VAULTWARDEN_POSTGRES_USERNAME}"
+      postgresqlUsername: vaultwarden
       postgresqlPassword: "${VAULTWARDEN_POSTGRES_PASSWORD}"
-      postgresqlDatabase: "${VAULTWARDEN_POSTGRES_DATABASE}"
+      postgresqlDatabase: vaultwarden
       persistence:
         enabled: true
         existingClaim: vaultwarden-postgresql

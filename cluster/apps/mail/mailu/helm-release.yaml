@@ -1,0 +1,83 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: mailu
+  namespace: mail
+spec:
+  interval: 5m
+  chart:
+    spec:
+      chart: mailu
+      version: 0.3.2
+      sourceRef:
+        kind: HelmRepository
+        name: mailu-charts
+        namespace: flux-system
+      interval: 5m
+  values:
+    mailuVersion: 1.9.29
+    database:
+      type: postgresql
+      roundcubeType: postgresql
+      postgresql:
+        host: mailu-postgresql
+        database: mailu
+        user: mailu
+        password: ${SECRET_MAILU_DB_PASSWORD}
+        roundcubeDatabase: mailu
+        roundcubeUser: mailu
+        roundcubePassword: ${SECRET_MAILU_DB_PASSWORD}
+    certmanager:
+      enabled: true
+      apiVersion: cert-manager.io/v1
+      issuerName: letsencrypt-production
+    domain: "mail.${SECRET_DOMAIN}"
+    hostnames:
+      - "mail.${SECRET_DOMAIN}"
+    postmaster: ${SECRET_MAILU_ADMIN_USER}
+    initialAccount:
+      domain: "${SECRET_DOMAIN}"
+      username: ${SECRET_MAILU_ADMIN_USER}
+      password: "${SECRET_MAILU_ADMIN_PASSWORD}"
+    secretKey: "${SECRET_MAILU_SECRET_KEY}"
+    ingress:
+      className: traefik
+      annotations:
+        external-dns/is-public: "true"
+        traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+        traefik.ingress.kubernetes.io/router.middlewares: "networking-internal-only@kubernetescrd"
+      hosts:
+        - "mail.${SECRET_DOMAIN}"
+      tls:
+        hosts:
+          - "mail.${SECRET_DOMAIN}"
+    persistence:
+      existingClaim: mailu-storage
+    roundcube:
+      resources:
+        requests:
+          cpu: 200m
+        limits:
+          cpu: 800m
+    rspamd:
+      resources:
+        requests:
+          cpu: 200m
+          memory: 100Mi
+        limits:
+          cpu: 2000m
+          memory: 1500Mi
+    front:
+      controller:
+        kind: Deployment
+  postRenderers:
+    - kustomize:
+        patchesJson6902:
+          - target:
+              kind: Deployment
+              name: mailu-front
+            patch:
+              - op: add
+                path: /spec/template/spec/hostname
+                value: mailu-front

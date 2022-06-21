@@ -24,7 +24,7 @@ spec:
   values:
     replicas: 1
     image:
-      repository: ghcr.io/k8s-at-home/vaultwarden
+      repository: vaultwarden/server
       tag: v1.25.0
     env:
       DATA_FOLDER: "config"
@@ -81,7 +81,7 @@ spec:
               - path: /admin
                 pathType: Prefix
                 service:
-                  port: http
+                  port: 80
         tls:
           - hosts:
               - "vaultwarden.${SECRET_DOMAIN}"
@@ -90,12 +90,6 @@ spec:
       config:
         enabled: true
         existingClaim: vaultwarden-config
-    resources:
-      requests:
-        memory: 100Mi
-        cpu: 100m
-      limits:
-        memory: 2000Mi
     postgresql:
       enabled: true
       postgresqlUsername: "${VAULTWARDEN_POSTGRES_USERNAME}"

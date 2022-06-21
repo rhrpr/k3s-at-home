@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: vaultwarden-config
-  namespace: default
+  name: vaultwarden-postgresql
+  namespace: security-apps
 spec:
   accessModes:
     - ReadWriteOnce
   storageClassName: longhorn
   resources:
     requests:
-      storage: 2Gi
+      storage: 20Gi

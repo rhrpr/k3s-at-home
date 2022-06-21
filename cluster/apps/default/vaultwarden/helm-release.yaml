@@ -25,7 +25,7 @@ spec:
     replicas: 1
     image:
       repository: vaultwarden/server
-      tag: v1.25.0
+      tag: 1.25.0
     env:
       DATA_FOLDER: "config"
       DOMAIN: https://vaultwarden.${SECRET_DOMAIN}

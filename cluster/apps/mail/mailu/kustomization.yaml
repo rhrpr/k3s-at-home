@@ -5,3 +5,4 @@ resources:
   - mailu-pvc.yaml
   - postgresql-helm-release.yaml
   - mailu-postgresql-pvc.yaml
+  - helm-release.yaml

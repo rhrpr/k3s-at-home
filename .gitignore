@@ -16,4 +16,3 @@ xanmanning.k3s*
 .terraform
 .terraform.tfstate*
 terraform.tfstate*
-cluster/apps/security-apps

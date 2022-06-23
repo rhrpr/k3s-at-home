@@ -18,3 +18,4 @@ xanmanning.k3s*
 terraform.tfstate*
 fstab
 dnsmasq.conf
+dnsmasq.backup.conf

@@ -19,3 +19,4 @@ terraform.tfstate*
 fstab
 dnsmasq.conf
 dnsmasq.backup.conf
+cluster/apps/mail

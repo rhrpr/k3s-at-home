@@ -6,7 +6,7 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
-  storageClassName: longhorn
+  storageClassName: longhorn-crypto-global-with-backup
   resources:
     requests:
-      storage: 20Gi
+      storage: 6Gi

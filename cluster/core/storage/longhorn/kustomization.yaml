@@ -4,5 +4,5 @@ kind: Kustomization
 resources:
   - namespace.yaml
   - helm-release.yaml
-  - longhorn-encrypted-storage-class
-  - longhorn-encrypted-backup-storage-class
+  - longhorn-encrypted-storage-class.yaml
+  - longhorn-encrypted-backup-storage-class.yaml

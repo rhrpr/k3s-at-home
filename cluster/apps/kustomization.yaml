@@ -6,7 +6,7 @@ resources:
   - flux-system
   - kube-system
   - networking
-  - storage
+  - storage/longhorn
   # - mail
   - security-apps
   # - system-upgrade

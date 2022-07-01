@@ -6,3 +6,4 @@ resources:
   - helm-release.yaml
   - longhorn-encrypted-storage-class.yaml
   - longhorn-encrypted-backup-storage-class.yaml
+  - recurringjob-backup.yaml

@@ -3,9 +3,10 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
   - default
-  # - mail
-  - security-apps
   - flux-system
   - kube-system
   - networking
+  - storage
+  # - mail
+  - security-apps
   # - system-upgrade

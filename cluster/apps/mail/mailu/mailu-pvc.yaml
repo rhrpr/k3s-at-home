@@ -1,0 +1,13 @@
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mailu-storage
+  namespace: mail
+spec:
+  storageClassName: longhorn-crypto-global
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 10Gi

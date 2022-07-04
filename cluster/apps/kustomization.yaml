@@ -7,6 +7,6 @@ resources:
   - kube-system
   - networking
   - storage/longhorn
-  # - mail
+  - mail
   - security-apps
   # - system-upgrade

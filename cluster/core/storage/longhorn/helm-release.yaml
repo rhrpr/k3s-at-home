@@ -26,7 +26,6 @@ spec:
     defaultSettings:
       defaultDataPath: /mnt/lvm_raid1/k3s/longhorn
       defaultReplicaCount: 1
-      backupTargetCredentialSecret: longhorn-backup-secret
     persistence:
       defaultClassReplicaCount: 1
     service:

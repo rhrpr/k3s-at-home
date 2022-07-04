@@ -31,7 +31,7 @@ spec:
     certmanager:
       enabled: true
       apiVersion: cert-manager.io/v1
-      issuerName: letsencrypt-production
+      issuerName: letsencrypt-staging
     domain: "mail.${SECRET_DOMAIN}"
     hostnames:
       - "mail.${SECRET_DOMAIN}"

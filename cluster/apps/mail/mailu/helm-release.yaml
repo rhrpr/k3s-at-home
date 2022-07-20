@@ -42,11 +42,15 @@ spec:
       password: "${SECRET_MAILU_ADMIN_PASSWORD}"
     secretKey: "${SECRET_MAILU_SECRET_KEY}"
     ingress:
-      className: traefik
-      annotations:
-        external-dns/is-public: "true"
-        traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
-        traefik.ingress.kubernetes.io/router.middlewares: "networking-internal-only@kubernetescrd"
+      main:
+        enabled: true
+        ingressClassName: "nginx"
+        annotations:
+          cert-manager.io/cluster-issuer: "letsencrypt-staging"
+          external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
+          external-dns/is-public: "true"
+          hajimari.io/enable: "true"
+          hajimari.io/icon: "at"
       hosts:
         - "mail.${SECRET_DOMAIN}"
       tls:

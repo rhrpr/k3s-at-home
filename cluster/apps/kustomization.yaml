@@ -6,7 +6,8 @@ resources:
   - flux-system
   - kube-system
   - networking
+  - crowdsec
   - storage/longhorn
   - mail
-  - security-apps
+  - security
   # - system-upgrade

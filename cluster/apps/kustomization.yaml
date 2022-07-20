@@ -9,5 +9,4 @@ resources:
   - crowdsec
   - storage/longhorn
   - mail
-  - security
   # - system-upgrade

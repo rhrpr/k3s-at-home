@@ -16,7 +16,7 @@ repos:
       - id: end-of-file-fixer
       - id: mixed-line-ending
   - repo: https://github.com/sirosen/texthooks
-    rev: 0.3.1
+    rev: 0.6.7
     hooks:
       - id: fix-smartquotes
   - repo: https://github.com/k8s-at-home/sops-pre-commit
